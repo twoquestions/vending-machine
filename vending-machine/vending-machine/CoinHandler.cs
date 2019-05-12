@@ -6,6 +6,16 @@ namespace vending_machine
 {
     public class CoinHandler
     {
+        public CoinHandler()
+        {
+            OrderAmount = 0;
+            NickelBin = new List<Coin>();
+            DimeBin = new List<Coin>();
+            QuarterBin = new List<Coin>();
+            HalfDollarBin = new List<Coin>();
+            DollarBin = new List<Coin>();
+            CoinReturn = new List<Coin>();
+        }
 
         public double OrderAmount { get; set; }
 
@@ -23,7 +33,45 @@ namespace vending_machine
         /// <param name="coin"></param>
         public void AcceptCoin(Coin coin)
         {
+            if (coin.diameter == 21.21 &&
+                coin.weight == 5)
+            {   //Nickel
+                NickelBin.Add(coin);
+                OrderAmount += .05;
+            }
+            else if (coin.diameter == 17.91 &&
+                      coin.weight == 1.35)
+            {   //Dime
+                DimeBin.Add(coin);
+                OrderAmount += .1;
+            }
+            else if (coin.diameter == 24.26 &&
+                    coin.weight == 5.67)
+            {   //Quarter
+                QuarterBin.Add(coin);
+                OrderAmount += .25;
+            }
+            else if (coin.diameter == 30.61 &&
+                    coin.weight == 11.34)
+            {   //Half Dollar
+                HalfDollarBin.Add(coin);
+                OrderAmount += .5;
+            }
+            else if (coin.diameter == 26.49 &&
+                    coin.weight == 8.1)
+            {   //Dollar
+                DollarBin.Add(coin);
+                OrderAmount += 1;
+            }
+            else
+            {
+                CoinReturn.Add(coin);
+            }
+        }
 
+        public void ClearReturn()
+        {
+            CoinReturn.Clear();
         }
     }
 }

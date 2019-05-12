@@ -47,5 +47,18 @@ namespace vending_machine.vending_machine_tests
             Assert.AreEqual(handler.QuarterBin.Count, 0);
             Assert.AreEqual(handler.CoinReturn.Count, 1);
         }
+
+        [TestMethod]
+        public void ClearCoinReturn()
+        {
+            var counterfeitDime = new Coin() { diameter = 17, weight = 1.2 };
+            handler.AcceptCoin(counterfeitDime);
+
+            Assert.AreEqual(handler.CoinReturn.Count, 1);
+
+            handler.ClearReturn();
+
+            Assert.AreEqual(handler.CoinReturn.Count, 0);
+        }
     }
 }
