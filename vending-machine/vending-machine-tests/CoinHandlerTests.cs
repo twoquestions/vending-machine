@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace vending_machine.vending_machine_tests
+namespace Vending_Machine.Vending_Machine_Tests
 {
     [TestClass]
     public class CoinHandlerTests

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace vending_machine
+namespace Vending_Machine
 {
     public enum CoinType { Nickel, Dime, Quarter, HalfDollar, Dollar };
     /// <summary>
@@ -20,6 +20,11 @@ namespace vending_machine
             diameter = 0;
             weight = 0;
         }
+
+        /// <summary>
+        /// Creates mint specification coins.
+        /// </summary>
+        /// <param name="coinType"></param>
         public Coin(CoinType coinType)
         {
             switch (coinType)

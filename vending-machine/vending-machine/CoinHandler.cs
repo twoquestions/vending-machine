@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace vending_machine
+namespace Vending_Machine
 {
+    /// <summary>
+    /// This class keeps track of how much money we have for an
+    /// order at one time, and of how many coins and of what type
+    /// we have.
+    /// It also sorts coins into the proper bin, and rejects 
+    /// invalid coins.
+    /// </summary>
     public class CoinHandler
     {
         public CoinHandler()
