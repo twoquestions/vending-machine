@@ -29,11 +29,41 @@ namespace Vending_Machine.Vending_Machine_Tests
         }
 
         [TestMethod]
+        public void DispensesChips()
+        {
+            vendingMachine.coinHandler.AcceptCoin(new Coin(CoinType.Dollar));
+
+            var cola = vendingMachine.PushChipsButton();
+            var thanks = vendingMachine.CheckDisplay();
+            var insertcoin = vendingMachine.CheckDisplay();
+
+            Assert.AreEqual(cola, "Cola");
+            Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
+            Assert.AreEqual(thanks, "THANK YOU");
+            Assert.AreEqual(insertcoin, "INSERT COIN");
+        }
+
+        [TestMethod]
+        public void DispensesCandy()
+        {
+            vendingMachine.coinHandler.AcceptCoin(new Coin(CoinType.Dollar));
+
+            var cola = vendingMachine.PushCandyButton();
+            var thanks = vendingMachine.CheckDisplay();
+            var insertcoin = vendingMachine.CheckDisplay();
+
+            Assert.AreEqual(cola, "Cola");
+            Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
+            Assert.AreEqual(thanks, "THANK YOU");
+            Assert.AreEqual(insertcoin, "INSERT COIN");
+        }
+
+        [TestMethod]
         public void NotEnoughMoney()
         {
             vendingMachine.coinHandler.AcceptCoin(new Coin(CoinType.Dime));
 
-            var cola = vendingMachine.PushColaButton();
+            var cola = vendingMachine.PushCandyButton();
             var price = vendingMachine.CheckDisplay();
             var priceagain = vendingMachine.CheckDisplay();
 

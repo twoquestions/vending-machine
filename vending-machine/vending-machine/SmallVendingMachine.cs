@@ -13,12 +13,22 @@ namespace Vending_Machine
             coinHandler = new CoinHandler();
         }
 
-        public string PushColaButton()
+        public string PushCandyButton()
         {
             throw new NotImplementedException();
         }
 
         public object CheckDisplay()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object PushChipsButton()
+        {
+            throw new NotImplementedException();
+        }
+
+        public object PushColaButton()
         {
             throw new NotImplementedException();
         }
