@@ -37,7 +37,7 @@ namespace Vending_Machine.Vending_Machine_Tests
             var thanks = vendingMachine.CheckDisplay();
             var insertcoin = vendingMachine.CheckDisplay();
 
-            Assert.AreEqual(cola, "Cola");
+            Assert.AreEqual(cola, "Chips");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
             Assert.AreEqual(thanks, "THANK YOU");
             Assert.AreEqual(insertcoin, "INSERT COIN");
@@ -52,7 +52,7 @@ namespace Vending_Machine.Vending_Machine_Tests
             var thanks = vendingMachine.CheckDisplay();
             var insertcoin = vendingMachine.CheckDisplay();
 
-            Assert.AreEqual(cola, "Cola");
+            Assert.AreEqual(cola, "Candy");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
             Assert.AreEqual(thanks, "THANK YOU");
             Assert.AreEqual(insertcoin, "INSERT COIN");
