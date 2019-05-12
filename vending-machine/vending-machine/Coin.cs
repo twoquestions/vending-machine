@@ -10,6 +10,8 @@ namespace vending_machine
     /// for a shorthand in creating Coin objects.
     /// If we know the weight and diameter, we can counterfeit with the 
     /// parameterless constructor.
+    /// Coin specifications from: 
+    ///     https://www.usmint.gov/learn/coin-and-medal-programs/coin-specifications
     /// </summary>
     public class Coin
     {
@@ -20,8 +22,29 @@ namespace vending_machine
         }
         public Coin(CoinType coinType)
         {
-            diameter = 0;
-            weight = 0;
+            switch (coinType)
+            {
+                case CoinType.Nickel:
+                    diameter = 21.21;
+                    weight = 5;
+                    break;
+                case CoinType.Dime:
+                    diameter = 17.91;
+                    weight = 1.35;
+                    break;
+                case CoinType.Quarter:
+                    diameter = 24.26;
+                    weight = 5.67;
+                    break;
+                case CoinType.HalfDollar:
+                    diameter = 30.61;
+                    weight = 11.34;
+                    break;
+                case CoinType.Dollar:
+                    diameter = 26.49;
+                    weight = 8.1;
+                    break;
+            }
         }
         /// <summary>
         /// Diameter in millimeters
