@@ -69,8 +69,8 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             Assert.AreEqual(cola, "");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, .1);
-            Assert.AreEqual(price, "PRICE: $1.00");
-            Assert.AreEqual(priceagain, "PRICE: $1.00");
+            Assert.AreEqual(price, "PRICE: $0.65");
+            Assert.AreEqual(priceagain, "AMOUNT: $0.10");
         }
     }
 }
