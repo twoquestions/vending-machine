@@ -10,4 +10,5 @@ coins into the coin return.
 ## Product Dispenser
 
 If we have enough money in the machine, when we push a button for
-a specific product it will be dispensed.
+a specific product it will be dispensed.  Also it will give 
+out proper change instead of keeping the money.

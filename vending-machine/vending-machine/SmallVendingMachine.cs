@@ -5,6 +5,11 @@ using System.Linq;
 
 namespace Vending_Machine
 {
+    /// <summary>
+    /// This vending machine will give out strings representing
+    /// products, and display messages to the user about what they
+    /// should do to get snacks or refreshment.
+    /// </summary>
     public class SmallVendingMachine
     {
         public CoinHandler coinHandler;

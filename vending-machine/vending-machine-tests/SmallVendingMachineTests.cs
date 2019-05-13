@@ -24,6 +24,7 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             Assert.AreEqual(cola, "Cola");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn.Count, 0);
             Assert.AreEqual(thanks, "THANK YOU");
             Assert.AreEqual(insertcoin, "INSERT COIN");
         }
@@ -39,6 +40,11 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             Assert.AreEqual(cola, "Chips");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
+
+            //Should have 2 quarters
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn.Count, 2);
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn[0].diameter, 24.26);
+
             Assert.AreEqual(thanks, "THANK YOU");
             Assert.AreEqual(insertcoin, "INSERT COIN");
         }
@@ -54,6 +60,12 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             Assert.AreEqual(cola, "Candy");
             Assert.AreEqual(vendingMachine.coinHandler.OrderAmount, 0);
+
+            //We should have a quarter and a dime.
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn.Count, 2);
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn[0].diameter, 24.26);
+            Assert.AreEqual(vendingMachine.coinHandler.CoinReturn[1].diameter, 17.91);
+
             Assert.AreEqual(thanks, "THANK YOU");
             Assert.AreEqual(insertcoin, "INSERT COIN");
         }
