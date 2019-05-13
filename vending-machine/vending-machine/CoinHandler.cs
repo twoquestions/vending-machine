@@ -76,6 +76,11 @@ namespace Vending_Machine
             }
         }
 
+        public void ReturnCoins()
+        {
+            throw new NotImplementedException();
+        }
+
         public void ClearReturn()
         {
             CoinReturn.Clear();

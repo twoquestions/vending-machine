@@ -60,5 +60,19 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             Assert.AreEqual(handler.CoinReturn.Count, 0);
         }
+
+        [TestMethod]
+        public void ReturnCoinsTest()
+        {
+            var quarter = new Coin(CoinType.Quarter);
+            var dime = new Coin(CoinType.Dime);
+
+            handler.AcceptCoin(quarter);
+            handler.AcceptCoin(dime);
+
+            handler.ReturnCoins();
+
+            Assert.AreEqual(handler.CoinReturn.Count, 2);
+        }
     }
 }
