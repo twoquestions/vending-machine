@@ -18,8 +18,8 @@ namespace Vending_Machine.Vending_Machine_Tests
         {
             var coin = new Coin(CoinType.Quarter);
             handler.AcceptCoin(coin);
-            Assert.AreEqual(handler.OrderAmount, .25);
-            Assert.AreEqual(handler.QuarterBin.Count, 1);
+            Assert.AreEqual(.25, handler.OrderAmount);
+            Assert.AreEqual(1, handler.QuarterBin.Count);
         }
 
         [TestMethod]
@@ -32,9 +32,9 @@ namespace Vending_Machine.Vending_Machine_Tests
             handler.AcceptCoin(dime2);
             handler.AcceptCoin(nickel);
 
-            Assert.AreEqual(handler.OrderAmount, .25);
-            Assert.AreEqual(handler.DimeBin.Count, 2);
-            Assert.AreEqual(handler.NickelBin.Count, 1);
+            Assert.AreEqual(.25, handler.OrderAmount);
+            Assert.AreEqual(2, handler.DimeBin.Count);
+            Assert.AreEqual(1, handler.NickelBin.Count);
         }
 
         [TestMethod]
@@ -43,9 +43,9 @@ namespace Vending_Machine.Vending_Machine_Tests
             var counterfeitQuarter = new Coin() { diameter = 25, weight = 6 };
             handler.AcceptCoin(counterfeitQuarter);
 
-            Assert.AreEqual(handler.OrderAmount, 0);
-            Assert.AreEqual(handler.QuarterBin.Count, 0);
-            Assert.AreEqual(handler.CoinReturn.Count, 1);
+            Assert.AreEqual(0, handler.OrderAmount);
+            Assert.AreEqual(0, handler.QuarterBin.Count);
+            Assert.AreEqual(1, handler.CoinReturn.Count);
         }
 
         [TestMethod]
@@ -54,11 +54,11 @@ namespace Vending_Machine.Vending_Machine_Tests
             var counterfeitDime = new Coin() { diameter = 17, weight = 1.2 };
             handler.AcceptCoin(counterfeitDime);
 
-            Assert.AreEqual(handler.CoinReturn.Count, 1);
+            Assert.AreEqual(1, handler.CoinReturn.Count);
 
             handler.ClearReturn();
 
-            Assert.AreEqual(handler.CoinReturn.Count, 0);
+            Assert.AreEqual(0, handler.CoinReturn.Count);
         }
 
         [TestMethod]
@@ -72,7 +72,7 @@ namespace Vending_Machine.Vending_Machine_Tests
 
             handler.ReturnCoins();
 
-            Assert.AreEqual(handler.CoinReturn.Count, 2);
+            Assert.AreEqual(2, handler.CoinReturn.Count);
         }
     }
 }

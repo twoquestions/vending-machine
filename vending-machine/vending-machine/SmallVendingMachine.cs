@@ -22,6 +22,17 @@ namespace Vending_Machine
         public SmallVendingMachine()
         {
             coinHandler = new CoinHandler();
+
+            //Put some coins in the handler at the begining of the day.
+            for (var i = 0; i < 10; i++)
+            {
+                coinHandler.NickelBin.Add(new Coin(CoinType.Nickel));
+                coinHandler.DimeBin.Add(new Coin(CoinType.Dime));
+                coinHandler.QuarterBin.Add(new Coin(CoinType.Quarter));
+                coinHandler.HalfDollarBin.Add(new Coin(CoinType.HalfDollar));
+                coinHandler.DollarBin.Add(new Coin(CoinType.Dollar));
+            }
+
             candyCount = 10;
             chipsCount = 10;
             colaCount = 10;
@@ -48,7 +59,8 @@ namespace Vending_Machine
                 candyCount > 0)
             {
                 productCount -= 1;
-                coinHandler.OrderAmount = 0;
+                coinHandler.OrderAmount -= productPrice;
+                coinHandler.ReturnCoins();
                 message = "THANK YOU";
                 return productName;
             } else if (coinHandler.OrderAmount < productPrice)
@@ -66,12 +78,12 @@ namespace Vending_Machine
             return PushButton("Candy", .65, ref candyCount);
         }
 
-        public object PushChipsButton()
+        public string PushChipsButton()
         {
             return PushButton("Chips", .5, ref chipsCount);
         }
 
-        public object PushColaButton()
+        public string PushColaButton()
         {
             return PushButton("Cola", 1, ref colaCount);
         }

@@ -9,8 +9,8 @@ namespace Vending_Machine.Vending_Machine_Tests
         public void CreatesProperQuarter()
         {
             var quarter = new Coin(CoinType.Quarter);
-            Assert.AreEqual(quarter.diameter, 24.26);
-            Assert.AreEqual(quarter.weight, 5.67);
+            Assert.AreEqual(24.26, quarter.diameter);
+            Assert.AreEqual(5.67, quarter.weight);
         }
     }
 }

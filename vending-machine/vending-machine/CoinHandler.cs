@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Vending_Machine
 {
@@ -76,9 +77,60 @@ namespace Vending_Machine
             }
         }
 
+        /// <summary>
+        /// Return OrderAmount to the user in the proper
+        /// coinage in the Coin Return.
+        /// </summary>
         public void ReturnCoins()
         {
-            throw new NotImplementedException();
+            while (OrderAmount > 0)
+            {
+                Coin coin = null;
+                //Because floats aren't precise...
+                OrderAmount = Math.Round(OrderAmount, 2);
+
+                if (OrderAmount - 1 >= 0)
+                {
+                    coin = DollarBin.First();
+                    DollarBin.Remove(coin);
+                    OrderAmount -= 1;
+                    CoinReturn.Add(coin);
+                    continue;
+                }
+                if (OrderAmount - .5 >= 0)
+                {
+                    coin = HalfDollarBin.First();
+                    HalfDollarBin.Remove(coin);
+                    OrderAmount -= .5;
+                    CoinReturn.Add(coin);
+                    continue;
+                }
+                if (OrderAmount - .25 >= 0)
+                {
+                    coin = QuarterBin.First();
+                    QuarterBin.Remove(coin);
+                    OrderAmount -= .25;
+                    CoinReturn.Add(coin);
+                    continue;
+                }
+                if (OrderAmount - .1 >= 0)
+                {
+                    coin = DimeBin.First();
+                    DimeBin.Remove(coin);
+                    OrderAmount -= .1;
+                    CoinReturn.Add(coin);
+                    continue;
+                }
+                if (OrderAmount - .05 >= 0)
+                {
+                    coin = NickelBin.First();
+                    NickelBin.Remove(coin);
+                    OrderAmount -= .05;
+                    CoinReturn.Add(coin);
+                    continue;
+                }
+
+            }
         }
 
         public void ClearReturn()
